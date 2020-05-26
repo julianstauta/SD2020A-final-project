@@ -16,3 +16,30 @@
 La aqruitectura propuesta para desarrollar el proyecto es la siguiente
 
 ![Imagen 1](/images/Vagrantfile.PNG)<br/> (Aqui ponen la imagen de la arquitectura)
+
+Implementacion de cada componente:
+
+Base de datos:
+Api de acceso y modificacion de base de datos:
+Front end:
+Balanceador de carga:
+Orquesatdor de contenedores mediante docker-compose:
+
+Implementacion del sistema de health check:
+
+Implementacion de pruebas de integracion automaticas:
+
+### Ejecucion y funcionamiento
+
+Para construir los contenedores del sistema hay que usar el comando<br/>
+```
+docker-compose build
+```
+Tras ejecutar el comando verificamos que no hayan errores en  este proceso:
+![Imagen 100](/images/builtok.png)<br/>
+
+Una vez construido ejecutamos el sistema con el comando<br/>
+```
+docker-compose up
+```
+![Imagen 100](/images/dockerup.png)<br/>
