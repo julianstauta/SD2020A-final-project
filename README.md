@@ -75,11 +75,11 @@ Esta dirección IP corresponde al contenedor proxy Ngnix, que esta expuesto al u
 ![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
 
 Para agregar un nombre escibimos el nombre en el campo de texto y hacemos click en agregar<br/>
-![Imagen 101](/imageproject/addName.JPG)<br/>
-![Imagen 101](/imageproject/nameadded.JPG)<br/>
+![Imagen 101](/imageproject/addName.png)<br/>
+![Imagen 101](/imageproject/nameadded.png)<br/>
 
 Una vez agregado exitosamnete el nombre aparecera en la lista<br/>
-![Imagen 101](/imageproject/nameaddedapp.JPG)<br/>
+![Imagen 101](/imageproject/nameaddedapp.png)<br/>
 
 Tambien podemos comprobar que fue agregado en la base de datos<br/>
-![Imagen 101](/imageproject/nameaddeddb.JPG)<br/>
+![Imagen 101](/imageproject/nameaddeddb.PNG)<br/>
