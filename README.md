@@ -3,7 +3,7 @@
 ### Jose Camilo Moctezuma Ruiz - 
 ### Julian Santiago Tauta Chaparro - A00022232
 ### Cristian Duque - 
-### Camilo Penagos - 
+### Camilo Penagos - A00301416
 
 ### Objetivos
 
@@ -32,6 +32,21 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 - Implementación de cada componente:
 
 **Base de datos:**
+Para este componente se uso una base de datos mongodb alojada en un servicio llamado mongoatlas<br/>
+Es necesario primero crear un cluster<br/>
+![Imagen 2](/imageproject/dbconnect.PNG)<br/>
+Dentro del cluster es neceasio:
+    1. Definir un usuario para la base de datos<br/>
+![Imagen 3](/imageproject/adddbuser.PNG)<br/>
+    2. Definir la lista de ip que pueden acceder a la base e datos, en este caso es 0.0.0.0 para que se pueda accesar desde cualquier lugar
+![Imagen 4](/imageproject/ipwhitelist.PNG)<br/>
+Una ves hecho esto, volvemos a la ventana pricipal de cluster y hacemos click en el boton connect 
+![Imagen 2](/imageproject/dbconnect.PNG)<br/>
+Ahi se abre una ventana y seleccionamos la opcion "connect your application"
+![Imagen 5](/imageproject/connection2.PNG)<br/>
+Ahora en donde dice driver seleccionamos nodejs y la version 3.0. Esto se debe a que vamos a acceder a la base de datos usando un api en node js. Al hacer esto nos aparecera un texto con la url para acceder a la base de datos desde node js.
+![Imagen 6](/imageproject/connection3.PNG)<br/>
+
 
 **Api de acceso y modificacion de base de datos:**
 
@@ -40,6 +55,10 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 **Orquesatdor de contenedores mediante docker-compose:**
 
 **Balanceador de carga:**
+
+El balanceador de carga para las instancias web de frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
+
+<img src ="imageproject/confNgnix.JPG" height="300" >
 
 **Implementacion del sistema de health check:**
 
@@ -63,7 +82,7 @@ docker-compose up
 Se evidencia que los contenedores han sido ejecutados correctamente por el orquestador, y que los servicios se encuentran corriendo.
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
-Podmeos comporobar que los contenedores esten corriendo con el comando
+Podemos comporobar que los contenedores esten corriendo con el comando
 ```
 docker ps
 ```
@@ -83,3 +102,5 @@ Una vez agregado exitosamnete el nombre aparecera en la lista<br/>
 
 Tambien podemos comprobar que fue agregado en la base de datos<br/>
 ![Imagen 101](/imageproject/nameaddeddb.png)<br/>
+
+Comporobar el estado de los contenedores con el healthcheck
