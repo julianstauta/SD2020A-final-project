@@ -11,11 +11,23 @@
  * Desplegar un sistema distribuido, teniendo en cuenta las estrategias de administración de sus recursos consideradas en el diseño.
  * Gestionar el servicio distribuido, haciendo uso de herramientas de monitoreo y provisionamiento
 
-### Desarrollo
+### Arquitectura
 
-La aqruitectura propuesta para desarrollar el proyecto es la siguiente
+La arquitectura propuesta para desarrollar el proyecto es la siguiente
 
 ![Imagen 1](/imageproject/Arquitectura.JPG)<br/>
+
+La arquitectura propuesta para dar solución al proyecto cuenta con una red docker de cuatro contenedores, que se comunica mediante REST con una base de datos en la nube para el almacenamiento. Esta red docker esta conformada por cuatro contenedores:
+
+1. **Balanceador de carga:** Una instancia de Ngnix, que permite hacer el balanceo de carga a las peticiones de las instancias web. Este proxy esta expuesto para ser accedido por el puerto 80 
+
+2. **Servidores Web:** Dos intancias de frontend desplegadas en Vue.js, estas instancias reciben peticiones http previamente balanceadas por el proxy Ngninx
+
+3. **Servidor REST:** Servidor de backend desplegado en node.js que permite la comunicación REST con la base de datos en la nube
+
+
+
+### Desarrollo
 
 Implementacion de cada componente:
 
