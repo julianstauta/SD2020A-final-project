@@ -1,9 +1,9 @@
 # SD2020A-final-project
 
-### Jose Camilo Moctezuma Ruiz - 
-### Julian Santiago Tauta Chaparro - A00022232
-### Cristian Duque - 
-### Camilo Penagos - A00301416
+#### Jose Camilo Moctezuma Ruiz - 
+#### Julian Santiago Tauta Chaparro - A00022232
+#### Cristian Duque - 
+#### Camilo Penagos - A00301416
 
 ### Objetivos
 
@@ -11,7 +11,7 @@
  * Desplegar un sistema distribuido, teniendo en cuenta las estrategias de administración de sus recursos consideradas en el diseño.
  * Gestionar el servicio distribuido, haciendo uso de herramientas de monitoreo y provisionamiento
 
-### Arquitectura
+## Arquitectura
 
 La arquitectura propuesta para desarrollar el proyecto es la siguiente
 
@@ -27,11 +27,11 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 
 
 
-### Desarrollo
+## Desarrollo
 
-- Implementación de cada componente:
+-  Este segmento corresponde a la implementación de cada componente:
 
-**Base de datos:**
+### Base de datos:
 Para este componente se uso una base de datos mongodb alojada en un servicio llamado mongoatlas<br/>
 Es necesario primero crear un cluster<br/>
 ![Imagen 2](/imageproject/dbconnect.PNG)<br/>
@@ -48,26 +48,26 @@ Ahora en donde dice driver seleccionamos nodejs y la version 3.0. Esto se debe a
 ![Imagen 6](/imageproject/connection3.PNG)<br/>
 
 
-**Api de acceso y modificacion de base de datos:**
+### API rest de acceso y modificacion de base de datos:
 
-**Front end:**
+### Front end:
 
-**Orquesatdor de contenedores mediante docker-compose:**
+### Orquestador de contenedores mediante docker-compose:
 
-**Balanceador de carga:**
+### Balanceador de carga:
 
 El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
 
-<img src ="imageproject/ConfNgnix.JPG" height="300" >
+<img src ="imageproject/ConfNgnix.JPG" height="270" >
 
 **Implementacion del sistema de health check:**
 
 **Implementacion de pruebas de integracion automaticas:**
 
 
-### Ejecucion y funcionamiento
+## Ejecución y funcionamiento:
 
-Para construir los contenedores del sistema hay que usar el comando<br/>
+Lo primero que debe de hacer es construir los contenedores de la red docker, para esto previamente fue configurado el docker compose como orquestador, posteriormente para construir los contenedores del sistema hay que usar el comando <br/>
 ```
 docker-compose build
 ```
@@ -104,3 +104,5 @@ Tambien podemos comprobar que fue agregado en la base de datos<br/>
 ![Imagen 101](/imageproject/nameaddeddb.png)<br/>
 
 Comporobar el estado de los contenedores con el healthcheck
+
+## Problemas
