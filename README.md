@@ -35,7 +35,7 @@ Para construir los contenedores del sistema hay que usar el comando<br/>
 ```
 docker-compose build
 ```
-Tras ejecutar el comando verificamos que no hayan errores en  este proceso:
+Tras ejecutar el comando verificamos que no hayan errores en  este proceso<br/>
 ![Imagen 100](/images/builtok.png)<br/>
 
 Una vez construido ejecutamos el sistema con el comando<br/>
