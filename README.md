@@ -29,17 +29,21 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 
 ### Desarrollo
 
-Implementacion de cada componente:
+- Implementacion de cada componente:
 
-Base de datos:
-Api de acceso y modificacion de base de datos:
-Front end:
-Balanceador de carga:
-Orquesatdor de contenedores mediante docker-compose:
+**Base de datos:**
 
-Implementacion del sistema de health check:
+**Api de acceso y modificacion de base de datos:**
 
-Implementacion de pruebas de integracion automaticas:
+**Front end:**
+
+**Balanceador de carga:**
+
+**Orquesatdor de contenedores mediante docker-compose:**
+
+**Implementacion del sistema de health check:**
+
+**Implementacion de pruebas de integracion automaticas:**
 
 ### Ejecucion y funcionamiento
 
@@ -47,7 +51,7 @@ Para construir los contenedores del sistema hay que usar el comando<br/>
 ```
 docker-compose build
 ```
-Tras ejecutar el comando verificamos que no hayan errores en  este proceso<br/>
+Tras ejecutar el comando, verificamos que no hayan errores en  este proceso<br/>
 ![Imagen 100](/imageproject/builtok.png)<br/>
 
 Una vez construido ejecutamos el sistema con el comando<br/>
@@ -57,5 +61,6 @@ docker-compose up
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
 Ahora podemos ver como funciona la aplicacion:<br/>
-Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80/<br/>
+Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80
+Esta direccion corresponde al contenedor proxy Ngnix, que esta expuesto al usuario para ser accedido por web/<br/>
 ![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
