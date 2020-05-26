@@ -15,7 +15,7 @@
 
 La aqruitectura propuesta para desarrollar el proyecto es la siguiente
 
-![Imagen 1](/images/Vagrantfile.PNG)<br/> (Aqui ponen la imagen de la arquitectura)
+![Imagen 1](/imageproject/Arquitectura.JPG)<br/>
 
 Implementacion de cada componente:
 
@@ -36,10 +36,14 @@ Para construir los contenedores del sistema hay que usar el comando<br/>
 docker-compose build
 ```
 Tras ejecutar el comando verificamos que no hayan errores en  este proceso<br/>
-![Imagen 100](/images/builtok.png)<br/>
+![Imagen 100](/imageproject/builtok.png)<br/>
 
 Una vez construido ejecutamos el sistema con el comando<br/>
 ```
 docker-compose up
 ```
-![Imagen 100](/images/dockerup.png)<br/>
+![Imagen 101](/imageproject/dockerup.png)<br/>
+
+Ahora podemos ver como funciona la aplicacion:<br/>
+Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80/<br/>
+![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
