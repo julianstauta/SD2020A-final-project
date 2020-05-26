@@ -56,9 +56,9 @@ Ahora en donde dice driver seleccionamos nodejs y la version 3.0. Esto se debe a
 
 **Balanceador de carga:**
 
-El balanceador de carga para las instancias web de frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
+El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
 
-<img src ="imageproject/confNgnix.JPG" height="300" >
+<img src ="imageproject/ConfNgnix.JPG" height="300" >
 
 **Implementacion del sistema de health check:**
 
