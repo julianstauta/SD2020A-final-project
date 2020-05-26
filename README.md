@@ -63,7 +63,7 @@ docker-compose up
 Se evidencia que los contenedores han sido ejecutados correctamente por el orquestador, y que los servicios se encuentran corriendo.
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
-Podmeos comporobar que los contenedores esten corriendo con el comando
+Podemos comporobar que los contenedores esten corriendo con el comando
 ```
 docker ps
 ```
