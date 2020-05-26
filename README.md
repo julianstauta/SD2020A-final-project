@@ -44,6 +44,22 @@ docker-compose up
 ```
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
+Podmeos comporobar que los contenedores esten corriendo con el comando
+```
+docker ps
+```
+![Imagen 101](/imageproject/dockerps.png)<br/>
+
 Ahora podemos ver como funciona la aplicacion:<br/>
 Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80/<br/>
 ![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
+
+Para agregar un nombre escibimos el nombre en el campo de texto y hacemos click en agregar<br/>
+![Imagen 101](/imageproject/addName.JPG)<br/>
+![Imagen 101](/imageproject/nameadded.JPG)<br/>
+
+Una vez agregado exitosamnete el nombre aparecera en la lista<br/>
+![Imagen 101](/imageproject/nameaddedapp.JPG)<br/>
+
+Tambien podemos comprobar que fue agregado en la base de datos<br/>
+![Imagen 101](/imageproject/nameaddeddb.JPG)<br/>
