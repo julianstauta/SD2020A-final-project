@@ -13,3 +13,6 @@
 
 ### Desarrollo
 
+La aqruitectura propuesta para desarrollar el proyecto es la siguiente
+
+![Imagen 1](/images/Vagrantfile.PNG)<br/> (Aqui ponen la imagen de la arquitectura)
