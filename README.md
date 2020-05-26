@@ -29,7 +29,7 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 
 ### Desarrollo
 
-- Implementacion de cada componente:
+- Implementación de cada componente:
 
 **Base de datos:**
 
@@ -37,13 +37,14 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 
 **Front end:**
 
-**Balanceador de carga:**
-
 **Orquesatdor de contenedores mediante docker-compose:**
+
+**Balanceador de carga:**
 
 **Implementacion del sistema de health check:**
 
 **Implementacion de pruebas de integracion automaticas:**
+
 
 ### Ejecucion y funcionamiento
 
@@ -58,9 +59,11 @@ Una vez construido ejecutamos el sistema con el comando<br/>
 ```
 docker-compose up
 ```
+
+Se evidencia que los contenedores han sido ejecutados correctamente por el orquestador, y que los servicios se encuentran corriendo.
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
 Ahora podemos ver como funciona la aplicacion:<br/>
 Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80
-Esta direccion corresponde al contenedor proxy Ngnix, que esta expuesto al usuario para ser accedido por web/<br/>
+Esta dirección IP corresponde al contenedor proxy Ngnix, que esta expuesto al usuario para ser accedido por web.<br/>
 ![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
