@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+    server:
+        container_name: server
+        build: server
+        ports:
+            - "5000:5000"
+        networks:
+            distri_net:
+                ipv4_address: 192.168.2.2
+
+    client:
+        container_name: client
+        build: client
+        ports:
+            - "8080:8080"
+        networks:
+            distri_net:
+                ipv4_address: 192.168.2.3
+
+    clientx:
+        container_name: clientx
+        build: client
+        ports:
+            - "8081:8080"
+        networks:
+            distri_net:
+                ipv4_address: 192.168.2.4
+
+    proxy:
+        container_name: proxy
+        build: proxy
+        ports:
+            - "80:80"
+        networks:
+            distri_net:
+                ipv4_address: 192.168.2.10
+
+networks:
+    distri_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.2.0/24
