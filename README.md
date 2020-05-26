@@ -82,4 +82,4 @@ Una vez agregado exitosamnete el nombre aparecera en la lista<br/>
 ![Imagen 101](/imageproject/nameaddedapp.png)<br/>
 
 Tambien podemos comprobar que fue agregado en la base de datos<br/>
-![Imagen 101](/imageproject/nameaddeddb.PNG)<br/>
+![Imagen 101](/imageproject/nameaddeddb.png)<br/>
