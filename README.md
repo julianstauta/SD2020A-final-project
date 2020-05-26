@@ -3,7 +3,7 @@
 ### Jose Camilo Moctezuma Ruiz - 
 ### Julian Santiago Tauta Chaparro - A00022232
 ### Cristian Duque - 
-### Camilo Penagos - 
+### Camilo Penagos - A00301416
 
 ### Objetivos
 
@@ -40,6 +40,10 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 **Orquesatdor de contenedores mediante docker-compose:**
 
 **Balanceador de carga:**
+
+El balanceador de carga para las instancias web de frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
+
+<img src ="imageproject/confNgnix.JPG" height="300" >
 
 **Implementacion del sistema de health check:**
 
