@@ -91,11 +91,25 @@ Luego se implementan los métodos de consumo del api<br/>
 
 ### Balanceador de carga:
 
-El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
+El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.<br/>
 
-<img src ="imageproject/ConfNgnix.JPG" height="270" >
+<img src ="imageproject/ConfNgnix.JPG" height="270" ><br/>
 
 ### Dockerizacion de componentes anteriores
+
+Una vez implementados los componentes anteriores es necesario dockerizarlos para que estos puedan correr independientemente en un contenedor. Para esto es necesario definir Dockerfiles para cada uno de los componentes.<br/>
+
+El Dockerfile para el servidor API es el siguiente<br/>
+![Imagen 20](/imageproject/dfileserver.png)<br/>
+En él se definen el entorno, los manejadores de paquetes necesarios para la ejecución del api como npm, el comando npm install que instala todas la librerías de node usadas por el API, también se define el comando que se ejecutara cuando el contenedor inicie, en  este caso se ejecutara el archivo index.js usando npm.<br/>
+
+El Dockerfile para el cliente web es el siguiente<br/>
+![Imagen 21](/imageproject/dfileclient.png)<br/>
+En él se definen el entorno, los manejadores de paquetes necesarios para la ejecución de la aplicación web como npm y vue , el comando npm install que instala todas la librerías de node y vue usadas por la aplicación web, el comando npm run build construye el cliente web para que este pueda ser despegado en un servidor web iniciado por npm, y finalmente se define el comando que se ejecutara cuando el contenedor inicie,  en este caso se ejecutara un servidor http en el contenedor.<br/>
+
+El Dockerfile para el balanceador de carga es el siguiente<br/>
+![Imagen 22](/imageproject/dfileproxy.png)<br/>
+En él se definen el entorno, los manejadores de paquetes necesarios para la ejecución balanceador de carga nginx.<br/>
 
 ### Orquestador de contenedores mediante docker-compose:
 
