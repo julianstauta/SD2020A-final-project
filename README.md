@@ -113,6 +113,21 @@ En él se definen el entorno, los manejadores de paquetes necesarios para la eje
 
 ### Orquestador de contenedores mediante docker-compose:
 
+Para orquestar los contenedores se decidió usar docker-compose para este se definió el archivo docker-compose de la siguiente manera:<br/>
+* Se define una red que será creada por Docker para facilitar la comunicación entre los contenedores:<br/>
+![Imagen 23](/imageproject/dockernet.png)<br/>
+* Luego se definen los contenedores que se van a usar:<br/>
+    * Se define el servidor api con el nombre server, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    ![Imagen 24](/imageproject/servercont.png)<br/>
+    * Se define la aplicación web con el nombre client, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos sus servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    ![Imagen 25](/imageproject/clientcont.png)<br/>
+    * Se define una segunda instancia de la aplicación web con el nombre clientx, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    ![Imagen 26](/imageproject/clientxcont.png)<br/>
+    * Y finalmente se define el balanceador de carga con el nombre proxy, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    ![Imagen 27](/imageproject/proxycont.png)<br/>
+Archivo docker-compose completo<br/>
+![Imagen 28](/imageproject/dcompose.png)<br/>
+
 **Implementacion del sistema de health check:**
 
 **Implementacion de pruebas de integracion automaticas:**
