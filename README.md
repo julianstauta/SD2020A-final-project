@@ -61,7 +61,7 @@ Luego se define la ruta principal del api api/names/<br/>
 Y finalmente se exponen los servicios por el puerto 5000 y en el host 0.0.0.0<br/>
 ![Imagen 9](/imageproject/indexexpose.png)<br/>
 Código completo clase index.js<br/>
-![Imagen 10](/imageproject/indexjs.png)<br/>
+![Imagen 10](/imageproject/inexjs.png)<br/>
 
 2.	names.js: es la clase en donde se implementan los métodos del api que permiten la conexión con la base de datos (get, post, etc). <br/>
 En esta clase también es necesario importar express, y se importa mongodb que es la librerias para facilitar la comunicación entre la base de datos mongo y nodejs <br/>
@@ -78,7 +78,7 @@ Ahora se pueden implementar los métodos: <br/>
 * El último método implementado es el método de eliminar un nombre, el cual es definido como un delete en la ruta “/” indicando que podrá ser consumido en la ruta api/names/, este obtiene el identificador del nombre que va a eliminar body del request que recibe cuando es llamado, luego elimina el dato con este identificador en la base de datos.<br/>
 ![Imagen 16](/imageproject/deletenames.png)<br/>
 Código completo clase names.js<br/>
-![Imagen 16](/imageproject/namesjs.png)<br/>
+![Imagen 17](/imageproject/namesjs.png)<br/>
 
 ### Front end:
 
