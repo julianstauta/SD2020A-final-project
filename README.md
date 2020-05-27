@@ -129,8 +129,26 @@ Archivo docker-compose completo<br/>
 ![Imagen 28](/imageproject/dcompose.png)<br/>
 
 ### Implementación del sistema de health check:
+Esta instrucción es implementada en los contenedores para verificar que esté funcionando los servicios correctamente. En este caso, cada docker-file posee su propio healthcheck que permite identificar el estado del contenedor asociado. Cada contenedor con healthcheck puede tener algunos de los siguientes 3 estados: Starting (Etapa de revisión del estado del contenedor) ,Healthy (Etapa de paso exitoso de la revisión) y Unhealthy (Etapa de fallos consecutivos de llamados al contenedor). <br/><br/>
 
-### Implementacion de pruebas de integracion automaticas:
+A continuación, veamos su implementación en el docker-file perteneciente al servidor web: <br/>
+![Imagen 29](imageproject/healthcheck_dockerfile_server.png)<br/>
+
+En la primera línea observamos 4 parámetros que posee el healthcheck
+1. interval: Define un espacio de tiempo para realizar la revisión.
+2. timeout: Es el tiempo máximo para recibir una respuesta por parte del contenedor, sino se considera fallido.
+3. start period: Es un tiempo de inicialización necesario para que el contenedor arranque.
+4. retries: Es el número de fallos consecutivos del healthcheck en el contenedor para ser considerado unhealthy.<br/>
+
+En la segunda línea se usa el comando curl para obtener una respuesta http por parte del servidor web para comprobar el estado del contenedor, si falla retorna el código de estado 1. <br/>
+De la misma manera, se ha implementado los healthchecks a los contenedores de los clientes y el balanceador de carga<br/><br/>
+
+Para verificar el estado, se usa el comando 'docker-compose ps'
+
+![Imagen 30](imageproject/status_starting_healtcheck.png)<br/>
+En la columna status vemos que los contenedores están corriendo. En el siguiente apartado se comprueba el estado health(starting) en cada uno de los contenedores con el comando 'docker ps'. 
+
+### Implementación de pruebas de integración automáticas:
 
 
 ## Ejecución y funcionamiento:
@@ -150,7 +168,7 @@ docker-compose up
 Se evidencia que los contenedores han sido ejecutados correctamente por el orquestador, y que los servicios se encuentran corriendo.<br/>
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
-Podemos comprobar que los contenedores estén corriendo con el comando
+Podemos comprobar que los contenedores estén corriendo y que sus estados están en health(starting) con el healthcheck implementado anteriormente, a través del comando
 ```
 docker ps
 ```
@@ -175,6 +193,10 @@ Una vez agregado exitosamente el nombre aparecerá en la lista<br/>
 También podemos comprobar que fue agregado en la base de datos<br/>
 ![Imagen 101](/imageproject/nameaddeddb.png)<br/>
 
-Comporobar el estado de los contenedores con el healthcheck
-
 ## Problemas
+
+En la implementación del healthcheck ocurre un inconveniente después de cierto tiempo en el que los contenedores están corriendo:<br/>
+
+![Imagen 101](/imageproject/healthcheck_unhealthy.png)<br/>
+
+Podemos ver que el estado de los contenedores es "unhealthy". 
