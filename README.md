@@ -2,7 +2,7 @@
 
 #### Jose Camilo Moctezuma Ruiz - 
 #### Julian Santiago Tauta Chaparro - A00022232
-#### Cristian Duque - 
+#### Cristian Duque - A00301448
 #### Camilo Penagos - A00301416
 
 ### Objetivos
@@ -21,7 +21,7 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 
 1. **Balanceador de carga:** Una instancia de Ngnix, que permite hacer el balanceo de carga a las peticiones de las instancias web. Este proxy esta expuesto para ser accedido por el puerto 80 
 
-2. **Servidores Web:** Dos intancias de frontend desplegadas en Vue.js, estas instancias reciben peticiones http previamente balanceadas por el proxy Ngninx
+2. **Servidores Web:** Dos instancias de frontend desplegadas en Vue.js, estas instancias reciben peticiones http previamente balanceadas por el proxy Ngninx
 
 3. **Servidor REST:** Servidor de backend desplegado en node.js que permite la comunicación REST con la base de datos en la nube
 
@@ -32,23 +32,23 @@ La arquitectura propuesta para dar solución al proyecto cuenta con una red dock
 -  Este segmento corresponde a la implementación de cada componente:
 
 ### Base de datos:
-Para este componente se uso una base de datos mongodb alojada en un servicio llamado mongoatlas<br/>
+Para este componente se usó una base de datos mongodb alojada en un servicio llamado mongoatlas.<br/>
 Es necesario primero crear un cluster<br/>
 ![Imagen 2](/imageproject/dbconnect.PNG)<br/>
-Dentro del cluster es neceasio:
+Dentro del cluster es necesario:<br/><br/>
     1. Definir un usuario para la base de datos<br/>
 ![Imagen 3](/imageproject/adddbuser.PNG)<br/>
-    2. Definir la lista de ip que pueden acceder a la base e datos, en este caso es 0.0.0.0 para que se pueda accesar desde cualquier lugar
+    2. Definir la lista de ip que pueden acceder a la base de datos, en este caso es 0.0.0.0 para que se pueda acceder desde cualquier lugar
 ![Imagen 4](/imageproject/ipwhitelist.PNG)<br/>
-Una ves hecho esto, volvemos a la ventana pricipal de cluster y hacemos click en el boton connect 
+Una vez hecho esto, volvemos a la ventana principal de cluster y hacemos click en el botón connect 
 ![Imagen 2](/imageproject/dbconnect.PNG)<br/>
 Ahi se abre una ventana y seleccionamos la opcion "connect your application"
 ![Imagen 5](/imageproject/connection2.PNG)<br/>
-Ahora en donde dice driver seleccionamos nodejs y la version 3.0. Esto se debe a que vamos a acceder a la base de datos usando un api en node js. Al hacer esto nos aparecera un texto con la url para acceder a la base de datos desde node js.
+Ahora, en donde dice driver seleccionamos nodejs y la version 3.0. Esto se debe a que vamos a acceder a la base de datos usando un api en nodejs. Al hacer esto nos aparecera un texto con la url para acceder a la base de datos desde nodejs.
 ![Imagen 6](/imageproject/connection3.PNG)<br/>
 
 
-### API rest de acceso y modificacion de base de datos:
+### API rest de acceso y modificación de base de datos:
 
 El api se implementó en nodejs, el propósito de este es ser un punto de conexión para insertar y recuperar información de la base de datos. <br/>
 Para implementar el api se definieron dos clases .js:<br/>
@@ -64,7 +64,7 @@ Código completo clase index.js<br/>
 ![Imagen 10](/imageproject/inexjs.png)<br/>
 
 2.	names.js: es la clase en donde se implementan los métodos del api que permiten la conexión con la base de datos (get, post, etc). <br/>
-En esta clase también es necesario importar express, y se importa mongodb que es la librerias para facilitar la comunicación entre la base de datos mongo y nodejs <br/>
+En esta clase también es necesario importar express, y se importa mongodb que es la librería para facilitar la comunicación entre la base de datos mongo y nodejs <br/>
 ![Imagen 11](/imageproject/nameslibs.png)<br/>
 Para que se pueda conectar al cluster de mongoatlas definido anteriormente es necesario usar el url mencionado previamente en la implementación de la base de datos. <br/>
 ![Imagen 12](/imageproject/mongoconnect1.png)<br/>
@@ -73,7 +73,7 @@ Finalmente se define cual es el nombre de la base de datos a la que se va a cons
 Ahora se pueden implementar los métodos: <br/>
 * De consulta, el cual se define como un get en la ruta “/” indicando que podrá ser consumido en la ruta api/names/, dentro del método se obtienen todos los datos de la colección names y luego se devuelve una lista con todos estos nombres.<br/>
 ![Imagen 14](/imageproject/getnames.png)<br/>
-* El método de agregar datos se define como un post ubicado en la ruta “/” indicando que podrá ser consumido en la ruta api/names/, el método obtiene la información que se va a insertar del parámetro body del request que recibe cuando es llamado, luego agreaga estos datos en la base de datos.<br/>
+* El método de agregar datos se define como un post ubicado en la ruta “/” indicando que podrá ser consumido en la ruta api/names/, el método obtiene la información que se va a insertar del parámetro body del request que recibe cuando es llamado, luego agrega estos datos en la base de datos.<br/>
 ![Imagen 15](/imageproject/addnames.png)<br/>
 * El último método implementado es el método de eliminar un nombre, el cual es definido como un delete en la ruta “/” indicando que podrá ser consumido en la ruta api/names/, este obtiene el identificador del nombre que va a eliminar body del request que recibe cuando es llamado, luego elimina el dato con este identificador en la base de datos.<br/>
 ![Imagen 16](/imageproject/deletenames.png)<br/>
@@ -91,21 +91,21 @@ Luego se implementan los métodos de consumo del api<br/>
 
 ### Balanceador de carga:
 
-El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.<br/>
+El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una fácil configuración para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.<br/>
 
 <img src ="imageproject/ConfNgnix.JPG" height="270" ><br/>
 
-### Dockerizacion de componentes anteriores
+### Dockerización de componentes anteriores
 
 Una vez implementados los componentes anteriores es necesario dockerizarlos para que estos puedan correr independientemente en un contenedor. Para esto es necesario definir Dockerfiles para cada uno de los componentes.<br/>
 
 El Dockerfile para el servidor API es el siguiente<br/>
 ![Imagen 20](/imageproject/dfileserver.png)<br/>
-En él se definen el entorno, los manejadores de paquetes necesarios para la ejecución del api como npm, el comando npm install que instala todas la librerías de node usadas por el API, también se define el comando que se ejecutara cuando el contenedor inicie, en  este caso se ejecutara el archivo index.js usando npm.<br/>
+En él se definen el entorno, los manejadores de paquetes necesarios para la ejecución del api como npm, el comando npm install que instala todas la librerías de node usadas por el API, también se define el comando que se ejecutará cuando el contenedor inicie, en  este caso se ejecutará el archivo index.js usando npm.<br/>
 
 El Dockerfile para el cliente web es el siguiente<br/>
 ![Imagen 21](/imageproject/dfileclient.png)<br/>
-En él se definen el entorno, los manejadores de paquetes necesarios para la ejecución de la aplicación web como npm y vue , el comando npm install que instala todas la librerías de node y vue usadas por la aplicación web, el comando npm run build construye el cliente web para que este pueda ser despegado en un servidor web iniciado por npm, y finalmente se define el comando que se ejecutara cuando el contenedor inicie,  en este caso se ejecutara un servidor http en el contenedor.<br/>
+En él se definen: el entorno, los manejadores de paquetes necesarios para la ejecución de la aplicación web como npm y vue, el comando npm install que instala todas la librerías de node y vue usadas por la aplicación web, el comando npm run build construye el cliente web para que este pueda ser despegado en un servidor web iniciado por npm, y finalmente se define el comando que se ejecutara cuando el contenedor inicie,  en este caso se ejecutara un servidor http en el contenedor.<br/>
 
 El Dockerfile para el balanceador de carga es el siguiente<br/>
 ![Imagen 22](/imageproject/dfileproxy.png)<br/>
@@ -117,18 +117,18 @@ Para orquestar los contenedores se decidió usar docker-compose para este se def
 * Se define una red que será creada por Docker para facilitar la comunicación entre los contenedores:<br/>
 ![Imagen 23](/imageproject/dockernet.png)<br/>
 * Luego se definen los contenedores que se van a usar:<br/>
-    * Se define el servidor api con el nombre server, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    * Se define el servidor api con el nombre server, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contenedor dentro de la red creada por Docker.<br/>
     ![Imagen 24](/imageproject/servercont.png)<br/>
-    * Se define la aplicación web con el nombre client, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos sus servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    * Se define la aplicación web con el nombre client, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos sus servicios y se define la ip del contenedor dentro de la red creada por Docker.<br/>
     ![Imagen 25](/imageproject/clientcont.png)<br/>
-    * Se define una segunda instancia de la aplicación web con el nombre clientx, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    * Se define una segunda instancia de la aplicación web con el nombre clientx, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedarán expuestos los servicios y se define la ip del contenedor dentro de la red creada por Docker.<br/>
     ![Imagen 26](/imageproject/clientxcont.png)<br/>
-    * Y finalmente se define el balanceador de carga con el nombre proxy, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedaran expuestos los servicios y se define la ip del contendor dentro de la red creada por Docker.<br/>
+    * Y finalmente se define el balanceador de carga con el nombre proxy, ahí se indica como se llama la carpeta donde se encuentran los archivos del contenedor, se indica el puerto en el que quedarán expuestos los servicios y se define la ip del contenedor dentro de la red creada por Docker.<br/>
     ![Imagen 27](/imageproject/proxycont.png)<br/>
 Archivo docker-compose completo<br/>
 ![Imagen 28](/imageproject/dcompose.png)<br/>
 
-### Implementacion del sistema de health check:
+### Implementación del sistema de health check:
 
 ### Implementacion de pruebas de integracion automaticas:
 
@@ -150,18 +150,18 @@ docker-compose up
 Se evidencia que los contenedores han sido ejecutados correctamente por el orquestador, y que los servicios se encuentran corriendo.<br/>
 ![Imagen 101](/imageproject/dockerup.png)<br/>
 
-Podemos comporobar que los contenedores esten corriendo con el comando
+Podemos comprobar que los contenedores estén corriendo con el comando
 ```
 docker ps
 ```
 ![Imagen 101](/imageproject/dockerps.png)<br/>
 
-Ahora podemos ver como funciona la aplicacion:<br/>
-Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80
-Esta dirección IP corresponde al contenedor proxy Ngnix, que esta expuesto al usuario para ser accedido por web.<br/>
+Ahora podemos ver como funciona la aplicación:<br/>
+Para acceder ingresamos la direccion 192.168.2.10:80/ en el navegador, también se puede ingresar por localhost:80/ o por 0.0.0.0:80
+Esta dirección IP corresponde al contenedor proxy Ngnix, que está expuesto al usuario para ser accedido por web.<br/>
 ![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
 
-Se evidencia que el balanceador Ngnix funciona correctamente y efectivamente esta balanceado las solicitudes http que son atendidas por el puerto 80, cada que se presenta una nueva solicitud al proxy, este la redirreciona a la instancia de frontend que le corresponda y alterna cada vez.
+Se evidencia que el balanceador Ngnix funciona correctamente y efectivamente está balanceado las solicitudes http que son atendidas por el puerto 80, cada que se presenta una nueva solicitud al proxy, este la redirecciona a la instancia de frontend que le corresponda y alterna cada vez.
 
 ![Imagen 208](/imageproject/ProxyLoad.JPG)<br/>
 
@@ -169,10 +169,10 @@ Para agregar un nombre escibimos el nombre en el campo de texto y hacemos click 
 ![Imagen 101](/imageproject/addName.png)<br/>
 ![Imagen 101](/imageproject/nameadded.png)<br/>
 
-Una vez agregado exitosamnete el nombre aparecera en la lista<br/>
+Una vez agregado exitosamente el nombre aparecerá en la lista<br/>
 ![Imagen 101](/imageproject/nameaddedapp.png)<br/>
 
-Tambien podemos comprobar que fue agregado en la base de datos<br/>
+También podemos comprobar que fue agregado en la base de datos<br/>
 ![Imagen 101](/imageproject/nameaddeddb.png)<br/>
 
 Comporobar el estado de los contenedores con el healthcheck
