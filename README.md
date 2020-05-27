@@ -199,4 +199,4 @@ En la implementación del healthcheck ocurre un inconveniente después de cierto
 
 ![Imagen 101](/imageproject/healthcheck_unhealthy.png)<br/>
 
-Podemos ver que el estado de los contenedores es "unhealthy". 
+Podemos ver que el estado de los contenedores es "unhealthy". Esto se debe a que está retornando un exit status de 1, y está considerando unhealthy a los contenedores; porque el comando curl no estaba funcionando de manera exitosa en los contenedores. 
