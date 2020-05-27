@@ -128,9 +128,9 @@ Para orquestar los contenedores se decidió usar docker-compose para este se def
 Archivo docker-compose completo<br/>
 ![Imagen 28](/imageproject/dcompose.png)<br/>
 
-**Implementacion del sistema de health check:**
+### Implementacion del sistema de health check:
 
-**Implementacion de pruebas de integracion automaticas:**
+### Implementacion de pruebas de integracion automaticas:
 
 
 ## Ejecución y funcionamiento:
@@ -160,6 +160,10 @@ Ahora podemos ver como funciona la aplicacion:<br/>
 Para aceder ingresamos la direccion 192.168.2.10:80/ en el navegador, tambien se puede ingresar por localhost:80/ o por 0.0.0.0:80
 Esta dirección IP corresponde al contenedor proxy Ngnix, que esta expuesto al usuario para ser accedido por web.<br/>
 ![Imagen 101](/imageproject/NgnixActive.JPG)<br/>
+
+Se evidencia que el balanceador Ngnix funciona correctamente y efectivamente esta balanceado las solicitudes http que son atendidas por el puerto 80, cada que se presenta una nueva solicitud al proxy, este la redirreciona a la instancia de frontend que le corresponda y alterna cada vez.
+
+![Imagen 208](/imageproject/ProxyLoad.JPG)<br/>
 
 Para agregar un nombre escibimos el nombre en el campo de texto y hacemos click en agregar<br/>
 ![Imagen 101](/imageproject/addName.png)<br/>
