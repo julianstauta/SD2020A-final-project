@@ -82,13 +82,22 @@ Código completo clase names.js<br/>
 
 ### Front end:
 
-### Orquestador de contenedores mediante docker-compose:
+Para el front end se implementó una aplicación web en vuejs. La cual consume el api implementado anteriormente para obtener y agregar información a la base de datos.<br/>
+El api se consume en el front en de la siguiente manera:<br/>
+Primero se copia el url por el que se va a consumir el api<br/>
+![Imagen 18](/imageproject/urlapi.png)<br/>
+Luego se implementan los métodos de consumo del api<br/>
+![Imagen 19](/imageproject/useapi.png)<br/>
 
 ### Balanceador de carga:
 
 El balanceador de carga para las instancias web de Frontend, fue implementado usando el servidor Ngnix que permite una facil configuracion para balancear solicitudes. Solo es necesario indicar las instancias que se quieren balancear con su respectiva IP y el puerto expuesto. En la imagen se indica como es la configuación del servicio Ngnix para la arquitectura propuesta.
 
 <img src ="imageproject/ConfNgnix.JPG" height="270" >
+
+### Dockerizacion de componentes anteriores
+
+### Orquestador de contenedores mediante docker-compose:
 
 **Implementacion del sistema de health check:**
 
