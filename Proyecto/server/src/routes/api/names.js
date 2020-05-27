@@ -3,7 +3,6 @@ const mongodb = require('mongodb');
 
 const router = express.Router();
 
-// const MongoURI = "mongodb://127.0.0.1:27017";  If you wnat to run it local uncoment
 const MongoURI = "mongodb+srv://dbadmin:SuperPassword@clusterproyectodistibuidos-jjbvg.mongodb.net/test?retryWrites=true&w=majority";
 
 var MongoClient = require('mongodb').MongoClient;
