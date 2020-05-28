@@ -151,7 +151,7 @@ En la columna status vemos que los contenedores están corriendo. En el siguient
 ### Pruebas de microservicios
 
 para comenzar utilizamos mocha en conjunto con chai para realizar las pruebas de microservicios. Asi pues, en primer lugar definimos en el package.json que utilizaremos mocha para realizar las  pruebas de microservicios y agregamos las dependencias nescesarias para realizar las pruebas.
-![Imagen 90](/imageproject/test_dependencies)<br/>
+![Imagen 90](/imageproject/test_dependencies.png)<br/>
 Luego de esto procedemos a instalar tanto mocha como Chai y una dependencia llamada Chai-http
 y procedemos con las pruebas de los microservicios. En la primera prueba tenemos una funcion que trae todos los usuarios de la base de datos mientras que en la segunda realiza un post con  el nombre especifico que se envia mediante el body del post.
 ![Imagen 90](/imageproject/codeTest.png)<br/>
