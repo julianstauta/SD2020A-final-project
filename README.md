@@ -148,8 +148,15 @@ Para verificar el estado, se usa el comando 'docker-compose ps'
 ![Imagen 30](imageproject/status_starting_healtcheck.png)<br/>
 En la columna status vemos que los contenedores están corriendo. En el siguiente apartado se comprueba el estado health(starting) en cada uno de los contenedores con el comando 'docker ps'. 
 
-### Implementación de pruebas de integración automáticas:
+### Pruebas de microservicios
 
+para comenzar utilizamos mocha en conjunto con chai para realizar las pruebas de microservicios. Asi pues, en primer lugar definimos en el package.json que utilizaremos mocha para realizar las  pruebas de microservicios y agregamos las dependencias nescesarias para realizar las pruebas.
+![Imagen 90](/imageproject/test_dependencies)<br/>
+Luego de esto procedemos a instalar tanto mocha como Chai y una dependencia llamada Chai-http
+y procedemos con las pruebas de los microservicios. En la primera prueba tenemos una funcion que trae todos los usuarios de la base de datos mientras que en la segunda realiza un post con  el nombre especifico que se envia mediante el body del post.
+![Imagen 90](/imageproject/codeTest.png)<br/>
+Finalmente probamos con el comando de “npm test” y observamos que las pruebas se realizan correctamente.
+![Imagen 90](/imageproject/goodTest.png)<br/>
 
 ## Ejecución y funcionamiento:
 
@@ -200,3 +207,6 @@ En la implementación del healthcheck ocurre un inconveniente después de cierto
 ![Imagen 101](/imageproject/healthcheck_unhealthy.png)<br/>
 
 Podemos ver que el estado de los contenedores es "unhealthy". Esto se debe a que está retornando un exit status de 1, y está considerando unhealthy a los contenedores; porque el comando curl no estaba funcionando de manera exitosa en los contenedores. 
+
+Al momento de hacer la integracion continua con Jenkins nos genero un error debido a que utilizamos el puerto en el cual se podia acceder a jenkins. Sin embargo al momento de cambiar el puerto de acceso a la herramienta de jenkins no se podia acceder aun  cuando el programa  estaba iniciado. Lo que nos parece mas extraño es que ambos procesos (cliente de docker y jenkins) escuchaban en la misma direccion (localhost:8080) sin embargo en ningun momento salto algun mensaje de error ni se detuvo alguno de ellos por la negacion del acceso al puerto.</br>
+![Imagen 90](/imageproject/errorJenkins.png)</br>
